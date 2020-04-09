@@ -1,25 +1,25 @@
 CC=gcc
-EXEC=Boggle
-CFLAGS=-ansi -Wall -pedantic
+EXEC=Dame
+CFLAGS=-Wall -pedantic
 LDFLAGS=-lncurses -lm
 OBJ=./Main.o ./Event.o ./Affichage.o ./Cases.o ./Position.o ./Reso.o ./Test.o
 
 $(EXEC): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-./Main.o: ./include/Arbre.h ./include/Dictionnaire.h ./include/Affichage.h ./include/Grille.h ./include/Evenements.h ./include/Test.h 
+./Main.o: ./include/Event.h ./include/Affichage.h ./include/Cases.h ./include/Position.h ./include/Reso.h ./include/Test.h
 
-./Arbre.o: ./include/Arbre.h
+./Event.o: ./include/Event.h ./include/Affichage.h ./include/Cases.h ./include/Position.h ./include/Reso.h
 
-./Dictionnaire.o: ./include/Dictionnaire.h ./include/Arbre.h
+./Affichage.o: ./include/Affichage.h ./include/Cases.h ./include/Position.h
 
-./Grille.o: ./include/Grille.h
+./Cases.o: ./include/Cases.h ./include/Position.h
 
-./Affichage.o: ./include/Affichage.h
+./Position.o: ./include/Position.h
 
-./Evenements.o: ./include/Evenements.h
+./Reso.o: ./include/Cases.h ./include/Position.h ./include/Reso.h
 
-./Test.o: ./include/Arbre.h ./include/Dictionnaire.h ./include/Grille.h ./include/Affichage.h ./include/Evenements.h
+./Test.o: ./include/Event.h ./include/Affichage.h ./include/Cases.h ./include/Position.h ./include/Reso.h ./include/Test.h
 
 ./%.o: ./src/%.c
 	$(CC) -o $@ -c $< $(CFLAGS)

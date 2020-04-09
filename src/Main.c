@@ -6,11 +6,11 @@
 #include "../include/Affichage.h"
 #include "../include/Event.h"
 
+#include <stdio.h>
+
 Position tab_cases_attaquees[64];
 
 int main (void) {
-
-    foo();
 
     return 0;
 }

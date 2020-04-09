@@ -6,6 +6,6 @@
 #include "Reso.h"
 #include "Affichage.h"
 
-void foo (void);
+extern Position tab_cases_attaquees[64];
 
 #endif
