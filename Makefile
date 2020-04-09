@@ -2,7 +2,7 @@ CC=gcc
 EXEC=Boggle
 CFLAGS=-ansi -Wall -pedantic
 LDFLAGS=-lncurses -lm
-OBJ=./Main.o ./Arbre.o ./Dictionnaire.o ./Grille.o ./Affichage.o ./Evenements.o ./Test.o
+OBJ=./Main.o ./Event.o ./Affichage.o ./Cases.o ./Position.o ./Reso.o ./Test.o
 
 $(EXEC): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
