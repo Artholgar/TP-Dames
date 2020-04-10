@@ -104,6 +104,8 @@ int test_placer_dame_position (void) {
         return 0;
     }
 
+    pos = 0;
+
     if (placer_dame_position(&pos, t1) && placer_dame_position(&pos, t2)) {
         if ((pos & (1L << t1)) == 0 || (pos & (1L << t2)) == 0){
             fprintf(stderr, "ERREUR : placer_dame_position test 4\n");
@@ -137,6 +139,43 @@ int test_placer_dame_position (void) {
     else {
         return 0;
     }
+
+    pos = 0;
+
+    if (placer_dame_position(&pos, t1) && !placer_dame_position(&pos, t1)) {
+        if ((pos & (1L << t1)) == 0){
+            fprintf(stderr, "ERREUR : placer_dame_position test 7\n");
+            return 0;
+        }
+    }
+    else {
+        return 0;
+    }
+
+    pos = 0;
+
+    if (placer_dame_position(&pos, t2) && !placer_dame_position(&pos, t2)) {
+        if ((pos & (1L << t2)) == 0){
+            fprintf(stderr, "ERREUR : placer_dame_position test 8\n");
+            return 0;
+        }   
+    }
+    else {
+        return 0;
+    }
+
+    pos = 0;
+
+    if (placer_dame_position(&pos, t3) && !placer_dame_position(&pos, t3)) {
+        if ((pos & (1L << t3)) == 0){
+            fprintf(stderr, "ERREUR : placer_dame_position test 9\n");
+            return 0;
+        } 
+    }
+    else {
+        return 0;
+    }
+
 
     return 1;
 }
