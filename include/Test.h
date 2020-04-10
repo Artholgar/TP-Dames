@@ -7,4 +7,6 @@
 #include "Affichage.h"
 #include "Event.h"
 
+int test (void);
+
 #endif

@@ -12,5 +12,7 @@ Position tab_cases_attaquees[64];
 
 int main (void) {
 
+    test();
+
     return 0;
 }

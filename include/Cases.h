@@ -5,7 +5,7 @@
 
 extern Position tab_cases_attaquees[64];
 
-enum Cases {
+typedef enum cas {
     A1,
     A2,
     A3,
@@ -70,6 +70,8 @@ enum Cases {
     H6,
     H7,
     H8,
-};
+} Case;
+
+int est_case_occupee (Position pos, Case c);
 
 #endif
