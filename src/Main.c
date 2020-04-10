@@ -11,8 +11,11 @@
 Position tab_cases_attaquees[64];
 
 int main (void) {
+    Position pos;
+
+    pos = 0;
 
     test();
-
+    
     return 0;
 }

@@ -74,4 +74,6 @@ typedef enum cas {
 
 int est_case_occupee (Position pos, Case c);
 
+int placer_dame_position (Position * pos, Case c);
+
 #endif
