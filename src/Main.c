@@ -16,6 +16,20 @@ int main (void) {
     pos = 0;
 
     test();
+
+
+    placer_dame_position(&pos, A1);
+
+    placer_dame_position(&pos, B1);
+
+    placer_dame_position(&pos, H8);
+
     
+
+    pos = 0;
+
+    calculer_cases_attaquees(&pos, F3);
+
+    afficher_position(pos);
     return 0;
 }

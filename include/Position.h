@@ -6,4 +6,6 @@ typedef unsigned long long Position;
 
 extern Position tab_cases_attaquees[64];
 
+int afficher_position (Position pos);
+
 #endif
