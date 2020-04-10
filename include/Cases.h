@@ -78,4 +78,8 @@ int placer_dame_position (Position * pos, Case c);
 
 int calculer_cases_attaquees (Position *pos, Case c);
 
+int init_tab_cases_attaquees (void);
+
+int est_sans_attaque_mutuelle (Position pos);
+
 #endif
