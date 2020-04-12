@@ -37,28 +37,28 @@ int calculer_cases_attaquees (Position *pos, Case c) {
     assert(c >= 0);
     assert(c <= 63);
 
-    for (j = 0; j < 8; j++) {
-        for (i = 0; i < 8; i++) {
-            if ((i + (j * 8)) == c){
+    for (j = 0; j < HAUTEUR; j++) {
+        for (i = 0; i < LARGEUR; i++) {
+            if ((i + (j * LARGEUR)) == c){
                 continue;
             }
-            else if (j == (c / 8)) {
-                if (!placer_dame_position(pos, (i + (j * 8)))) {
+            else if (j == (c / LARGEUR)) {
+                if (!placer_dame_position(pos, (i + (j * LARGEUR)))) {
                     return 0;
                 }
             }
-            else if (i == (c % 8)) {
-                if (!placer_dame_position(pos, (i + (j * 8)))) {
+            else if (i == (c % LARGEUR)) {
+                if (!placer_dame_position(pos, (i + (j * LARGEUR)))) {
                     return 0;
                 }
             }
-            else if ((i + j) == (c % 8) + (c / 8)) {
-                if (!placer_dame_position(pos, (i + (j * 8)))) {
+            else if ((i + j) == (c % LARGEUR) + (c / LARGEUR)) {
+                if (!placer_dame_position(pos, (i + (j * LARGEUR)))) {
                     return 0;
                 }
             }
-            else if (i - j == (c % 8) - (c / 8)) {
-                if (!placer_dame_position(pos, (i + (j * 8)))) {
+            else if (i - j == (c % LARGEUR) - (c / LARGEUR)) {
+                if (!placer_dame_position(pos, (i + (j * LARGEUR)))) {
                     return 0;
                 }
             }
@@ -70,7 +70,7 @@ int calculer_cases_attaquees (Position *pos, Case c) {
 int init_tab_cases_attaquees (void) {
     int i;
 
-    for (i = 0; i < 64; i++) {
+    for (i = 0; i < LARGEUR * HAUTEUR; i++) {
         if (!calculer_cases_attaquees(&(tab_cases_attaquees[i]), i)) {
             return 0;
         }
@@ -85,9 +85,9 @@ Position est_sans_attaque_mutuelle (Position pos) {
 
     res = 0L;
 
-    for (j = 0; j < 8; j++) {
-        for (i = 0; i < 8; i++) {
-            if (est_case_occupee(pos, (i + (j * 8)))) {
+    for (j = 0; j < HAUTEUR; j++) {
+        for (i = 0; i < LARGEUR; i++) {
+            if (est_case_occupee(pos, (i + (j * LARGEUR)))) {
                 res = (pos & tab_cases_attaquees[(i + (j * 8))]) | res;
             }
         }

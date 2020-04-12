@@ -7,7 +7,7 @@
 int afficher_position (Position pos) {
     int i;
 
-    for (i = 0; i <= 63; i++) {
+    for (i = 0; i < LARGEUR * HAUTEUR; i++) {
         if ((i % 8) == 0 && i != 0) {
             printf("\n");
         }

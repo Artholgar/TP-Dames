@@ -71,7 +71,7 @@ int test_placer_dame_position (void) {
     pos = 0;
 
     if (placer_dame_position(&pos, t1)) {
-        if ((pos & (1L << t1)) == 0){
+        if ((pos & (1L << t1)) == 0L){
             fprintf(stderr, "ERREUR : placer_dame_position test 1\n");
             return 0;
         }

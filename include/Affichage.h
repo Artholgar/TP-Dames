@@ -4,6 +4,15 @@
 #include "Position.h"
 #include "Cases.h"
 
+#define LARGEUR_C 6
+#define HAUTEUR_C 3
+
 extern Position tab_cases_attaquees[64];
+
+void init_affichage (void);
+
+void affiche_dame (Position pos, Case c, int couleur, Position conflits);
+
+void affiche_grille (Position pos, Position conflits);
 
 #endif
