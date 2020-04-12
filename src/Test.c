@@ -71,7 +71,7 @@ int test_placer_dame_position (void) {
     pos = 0;
 
     if (placer_dame_position(&pos, t1)) {
-        if ((pos & (1L << t1)) == 0L){
+        if ((pos & (1L << t1)) == 0){
             fprintf(stderr, "ERREUR : placer_dame_position test 1\n");
             return 0;
         }
@@ -192,14 +192,14 @@ int test_est_sans_attaque_mutuelle(void) {
 
     pos = 0;
 
-    if (!est_sans_attaque_mutuelle(pos)) {
-        fprintf(stderr, "ERREUR : placer_dame_position test 1\n");
+    if (est_sans_attaque_mutuelle(pos) != 0) {
+        fprintf(stderr, "ERREUR : est_sans_attaque_mutuelle test 1\n");
         return 0;
     }
 
     if (placer_dame_position(&pos, t1)) {
-        if (!est_sans_attaque_mutuelle(pos)) {
-            fprintf(stderr, "ERREUR : placer_dame_position test 2\n");
+        if (est_sans_attaque_mutuelle(pos) != 0) {
+            fprintf(stderr, "ERREUR : est_sans_attaque_mutuelle test 2\n");
             return 0;
         } 
     }
@@ -210,8 +210,8 @@ int test_est_sans_attaque_mutuelle(void) {
     pos = 0;
 
     if (placer_dame_position(&pos, t2)) {
-        if (!est_sans_attaque_mutuelle(pos)) {
-            fprintf(stderr, "ERREUR : placer_dame_position test 3\n");
+        if (est_sans_attaque_mutuelle(pos) != 0) {
+            fprintf(stderr, "ERREUR : est_sans_attaque_mutuelle test 3\n");
             return 0;
         } 
     }
@@ -222,8 +222,8 @@ int test_est_sans_attaque_mutuelle(void) {
     pos = 0;
 
     if (placer_dame_position(&pos, t3)) {
-        if (!est_sans_attaque_mutuelle(pos)) {
-            fprintf(stderr, "ERREUR : placer_dame_position test 4\n");
+        if (est_sans_attaque_mutuelle(pos) != 0) {
+            fprintf(stderr, "ERREUR : est_sans_attaque_mutuelle test 4\n");
             return 0;
         } 
     }
@@ -234,8 +234,8 @@ int test_est_sans_attaque_mutuelle(void) {
     pos = 0;
 
     if (placer_dame_position(&pos, t1) && placer_dame_position(&pos, t2)) {
-        if (est_sans_attaque_mutuelle(pos)) {
-            fprintf(stderr, "ERREUR : placer_dame_position test 5\n");
+        if (est_sans_attaque_mutuelle(pos) != ((1L << t1) | (1L << t2))) {
+            fprintf(stderr, "ERREUR : est_sans_attaque_mutuelle test 5\n");
             return 0;
         } 
     }
@@ -246,8 +246,8 @@ int test_est_sans_attaque_mutuelle(void) {
     pos = 0;
 
     if (placer_dame_position(&pos, t1) && placer_dame_position(&pos, t3)) {
-        if (est_sans_attaque_mutuelle(pos)) {
-            fprintf(stderr, "ERREUR : placer_dame_position test 6\n");
+        if (est_sans_attaque_mutuelle(pos) != ((1L << t1) | (1L << t3))) {
+            fprintf(stderr, "ERREUR : est_sans_attaque_mutuelle test 6\n");
             return 0;
         } 
     }
@@ -258,8 +258,8 @@ int test_est_sans_attaque_mutuelle(void) {
     pos = 0;
 
     if (placer_dame_position(&pos, t2) && placer_dame_position(&pos, t3)) {
-        if (!est_sans_attaque_mutuelle(pos)) {
-            fprintf(stderr, "ERREUR : placer_dame_position test 7\n");
+        if (est_sans_attaque_mutuelle(pos) != 0) {
+            fprintf(stderr, "ERREUR : est_sans_attaque_mutuelle test 7\n");
             return 0;
         } 
     }
@@ -270,8 +270,8 @@ int test_est_sans_attaque_mutuelle(void) {
     pos = 0;
 
     if (placer_dame_position(&pos, t2) && placer_dame_position(&pos, t2) && placer_dame_position(&pos, t3)) {
-        if (est_sans_attaque_mutuelle(pos)) {
-            fprintf(stderr, "ERREUR : placer_dame_position test 8\n");
+        if (est_sans_attaque_mutuelle(pos) != ((1L << t1) | (1L << t2) | (1L << t3))) {
+            fprintf(stderr, "ERREUR : est_sans_attaque_mutuelle test 8\n");
             return 0;
         } 
     }
