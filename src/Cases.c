@@ -79,18 +79,19 @@ int init_tab_cases_attaquees (void) {
     return 1;
 }
 
-int est_sans_attaque_mutuelle (Position pos) {
+Position est_sans_attaque_mutuelle (Position pos) {
     int j, i;
+    Position res;
+
+    res = 0L;
 
     for (j = 0; j < 8; j++) {
         for (i = 0; i < 8; i++) {
             if (est_case_occupee(pos, (i + (j * 8)))) {
-                if ((pos & tab_cases_attaquees[(i + (j * 8))]) != 0) {
-                    return 0;
-                }
+                res = (pos & tab_cases_attaquees[(i + (j * 8))]) | res;
             }
         }
     }
 
-    return 1;
+    return res;
 }

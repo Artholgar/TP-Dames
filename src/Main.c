@@ -2,7 +2,6 @@
 #include "../include/Test.h"
 #include "../include/Position.h"
 #include "../include/Cases.h"
-#include "../include/Reso.h"
 #include "../include/Affichage.h"
 #include "../include/Event.h"
 
@@ -21,16 +20,18 @@ int main (void) {
     test();
 
 
-    
+    placer_dame_position(&pos, A1);
 
-    placer_dame_position(&pos, B1);
+    placer_dame_position(&pos, G3);
 
     placer_dame_position(&pos, H8);
 
 
     afficher_position(pos);
 
-    printf("%d\n", est_sans_attaque_mutuelle(pos));
+    printf("\n\n");
+
+    afficher_position(est_sans_attaque_mutuelle(pos));
 
     /*for (i = 0; i < 64; i++) {
         afficher_position(tab_cases_attaquees[i]);

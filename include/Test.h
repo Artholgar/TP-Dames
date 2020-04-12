@@ -3,7 +3,6 @@
 
 #include "Position.h"
 #include "Cases.h"
-#include "Reso.h"
 #include "Affichage.h"
 #include "Event.h"
 

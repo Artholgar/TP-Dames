@@ -2,14 +2,14 @@ CC=gcc
 EXEC=Dame
 CFLAGS=-Wall -pedantic
 LDFLAGS=-lncurses -lm
-OBJ=./Main.o ./Event.o ./Affichage.o ./Cases.o ./Position.o ./Reso.o ./Test.o
+OBJ=./Main.o ./Event.o ./Affichage.o ./Cases.o ./Position.o ./Test.o
 
 $(EXEC): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-./Main.o: ./include/Event.h ./include/Affichage.h ./include/Cases.h ./include/Position.h ./include/Reso.h ./include/Test.h
+./Main.o: ./include/Event.h ./include/Affichage.h ./include/Cases.h ./include/Position.h ./include/Test.h
 
-./Event.o: ./include/Event.h ./include/Affichage.h ./include/Cases.h ./include/Position.h ./include/Reso.h
+./Event.o: ./include/Event.h ./include/Affichage.h ./include/Cases.h ./include/Position.h
 
 ./Affichage.o: ./include/Affichage.h ./include/Cases.h ./include/Position.h
 
@@ -17,9 +17,7 @@ $(EXEC): $(OBJ)
 
 ./Position.o: ./include/Position.h
 
-./Reso.o: ./include/Cases.h ./include/Position.h ./include/Reso.h
-
-./Test.o: ./include/Event.h ./include/Affichage.h ./include/Cases.h ./include/Position.h ./include/Reso.h ./include/Test.h
+./Test.o: ./include/Event.h ./include/Affichage.h ./include/Cases.h ./include/Position.h ./include/Test.h
 
 ./%.o: ./src/%.c
 	$(CC) -o $@ -c $< $(CFLAGS)
