@@ -5,22 +5,19 @@
 #include <stdio.h>
 
 int afficher_position (Position pos) {
-    int i;
+    int j, i;
 
-    for (i = 0; i < LARGEUR * HAUTEUR; i++) {
-        if ((i % 8) == 0 && i != 0) {
-            printf("\n");
-        }
+    for (j = HAUTEUR - 1; j >= 0; j--){
+        for (i = 0; i < LARGEUR; i++) {
 
-        if ((pos & (1L << i)) != 0) {
-            printf("+");
-        }
-        else {
-            printf(".");
-        }
-    }
+            if ((pos & (1L << (i + (LARGEUR * j)))) != 0) {
+                printf("+");
+            }
+            else {
+                printf(".");
+            }
 
-    if ((i % 8) == 0 && i != 0) {
+        }
         printf("\n");
     }
 

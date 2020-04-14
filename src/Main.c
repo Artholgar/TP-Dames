@@ -14,35 +14,35 @@ Position tab_cases_attaquees[64];
 
 int main (void) {
     Position pos;
-    //int i;
+	Case cas;
+	int compteur_dames, touche;
+	Case tab_cases[8];
+	//int i;
 
     init_tab_cases_attaquees();
 
     pos = 0;
+	cas = A1;
+	compteur_dames = 0;
+	
+	
+    test();	
+	
+	init_affichage();
 
-    test();
+	affiche_grille(pos, est_sans_attaque_mutuelle(pos), cas);
 
+	while (compteur_dames != 8 || est_sans_attaque_mutuelle(pos) != 0L) {
 
-    placer_dame_position(&pos, A1);
+		touche = getch();
 
-    placer_dame_position(&pos, G3);
+		gestion_ev(&pos, &cas, touche, tab_cases, &compteur_dames);
 
-    placer_dame_position(&pos, C5);
-
-    placer_dame_position(&pos, D7);
-
-    placer_dame_position(&pos, H8);
-
-
-
-    init_affichage();
-
-    affiche_grille(pos, est_sans_attaque_mutuelle(pos));
-
-    /*for (i = 0; i < 64; i++) {
-        afficher_position(tab_cases_attaquees[i]);
-        printf("\n\n");
-    }*/
+		affiche_grille(pos, est_sans_attaque_mutuelle(pos), cas);
+		
+	}
+	clear();
+	mvprintw(0, LARGEUR, "Vous avez gagné !");
 
     getchar();
 

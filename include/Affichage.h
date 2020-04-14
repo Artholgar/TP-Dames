@@ -11,8 +11,8 @@ extern Position tab_cases_attaquees[64];
 
 void init_affichage (void);
 
-void affiche_dame (Position pos, Case c, int couleur, Position conflits);
+void affiche_dame (Position pos, Case c, int couleur, Position conflits, Case courante);
 
-void affiche_grille (Position pos, Position conflits);
+void affiche_grille (Position pos, Position conflits, Case courante);
 
 #endif
