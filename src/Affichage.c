@@ -14,8 +14,8 @@ void init_affichage (void) {
 	
 	start_color();
 	
-	init_pair(1, COLOR_WHITE, COLOR_BLUE);
-	init_pair(2, COLOR_WHITE, COLOR_CYAN);
+	init_pair(1, COLOR_WHITE, COLOR_YELLOW);
+	init_pair(2, COLOR_WHITE, COLOR_BLACK);
     init_pair(3, COLOR_WHITE, COLOR_GREEN);
 	init_pair(4, COLOR_WHITE, COLOR_RED);
 	init_pair(5, COLOR_WHITE, COLOR_WHITE);
@@ -23,10 +23,7 @@ void init_affichage (void) {
 
 void affiche_dame (Position pos, Case c, int couleur, Position conflits, Case courante) {
 	int x, y;
-	int n, m;
 	int ordonnee, abscisse;
-
-	n = 0;
 
 	ordonnee = HAUTEUR_C * (((c / LARGEUR) * - 1) + 7);
 	abscisse = LARGEUR_C * (c % LARGEUR);
