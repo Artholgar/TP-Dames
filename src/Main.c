@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <ncurses.h>
+#include <unistd.h>
 
 
 
@@ -41,9 +42,10 @@ int main (void) {
 		affiche_grille(pos, est_sans_attaque_mutuelle(pos), cas);
 		
 	}
+	sleep(1);
 	clear();
-	mvprintw(0, LARGEUR, "Vous avez gagné !");
-
+	mvprintw((HAUTEUR * HAUTEUR_C) / 2, (LARGEUR * LARGEUR_C) / 2, "Vous avez gagné !");
+	refresh();
     getchar();
 
     endwin();
